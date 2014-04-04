@@ -43,14 +43,12 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Use sqlite3 as the database for Active Record
-group :development do
+group :development, :test do
   gem 'sqlite3'
-end
-
-# Use Travis CI tests
-group :test do
   gem 'rake'
   gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'spring'
 end
 
 # Use Heroku deploy
