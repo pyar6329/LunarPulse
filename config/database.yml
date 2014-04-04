@@ -21,6 +21,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
+  port: 5432
   host: <%= ENV['DB_HOST'] %>
   database: <%= ENV['DB_DATABASE'] %>
   pool: 5
