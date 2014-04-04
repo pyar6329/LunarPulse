@@ -1,10 +1,17 @@
 language: ruby
 rvm:
-  - 2.0.0-p353
+- 2.0.0-p353
 bundler_args: --without production
 before_install:
-  - gem update --system
-  - gem --version
+- gem update --system
+- gem --version
 script:
-  - bundle exec rake db:drop db:create db:migrate
-  - bundle exec rspec spec
+- bundle exec rake db:drop db:create db:migrate
+- bundle exec rspec spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: JspUG6re6VEn7m0yFDVZacSREifLnzzVT52y/jmtmBZmpZr3eQGTAS12oOkR/rqp+IddcFRvQYpraQsNISWJL+uBIt5Nz5ccXY2mfhm3MGCfr3786u5a6xkVa8pBLaan8UR2cBrQpbCaANXLzuS6w+Aa7nphsvuq5axXMNFSNIw=
+  app: lunarpulse
+  on:
+    repo: pyar6329/LunarPulse
