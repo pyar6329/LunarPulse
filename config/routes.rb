@@ -1,5 +1,9 @@
 LunarPulse::Application.routes.draw do
-  get "test_page/index"
+
+  # rootをtest_pageに設定
+  root 'test_page#index'
+
+  # get "test_page/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
