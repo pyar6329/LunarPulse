@@ -1,9 +1,9 @@
 LunarPulse::Application.routes.draw do
+  root 'test_page#index'    #トップページ
 
-  get "moon_map/index"
-  # rootをtest_pageに設定
-  root 'test_page#index'
+  get 'map/' => 'moon_map#index' # 月面マップ画面
 
+  # get "moon_map/index"
   # get "test_page/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
