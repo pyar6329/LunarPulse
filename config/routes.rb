@@ -1,5 +1,6 @@
 LunarPulse::Application.routes.draw do
 
+  get "moon_map/index"
   # rootをtest_pageに設定
   root 'test_page#index'
 
