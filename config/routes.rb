@@ -1,5 +1,6 @@
 LunarPulse::Application.routes.draw do
 
+  get "hue/index"
   root 'test_page#index'    #トップページ
 
   get 'map/' => 'moon_map#index' # 月面マップ画面
