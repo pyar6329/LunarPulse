@@ -38,6 +38,7 @@ Desktop.ini
 # for IntelliJ IDEA project file
 /.idea
 /*.iml
+/railways.cache
 
 ############################################
 # Rails .gitignore
