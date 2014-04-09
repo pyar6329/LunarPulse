@@ -37,7 +37,7 @@ Desktop.ini
 
 # for IntelliJ IDEA project file
 /.idea
-/LunarPulse.iml
+/*.iml
 
 ############################################
 # Rails .gitignore
