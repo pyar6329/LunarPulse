@@ -69,38 +69,6 @@ function failureCB(errorCode) {
     console.log('error');
 }
 
-/*
-function pinMapping(){
-
-    // Pinオブジェクトの作成
-    var placemark = ge.createPlacemark('');
-
-    // Pinのアイコンの設定 ここから
-    placemark.setName("placemark");
-    var icon = ge.createIcon('');
-    icon.setHref('http://maps.google.com/mapfiles/kml/paddle/red-circle.png');
-    var style = ge.createStyle('');
-    style.getIconStyle().setIcon(icon);
-    style.getIconStyle().setScale(5.0);
-    placemark.setStyleSelector(style);
-    // ここまで
-
-    // 月震計を目印としてセットする
-    var point = new Array();
-    for(i = 0; i < SEISMOMETER.length; i++){
-        point[i] = ge.createPoint('');
-        point[i].setLatitude(SEISMOMETER[i].lat);
-        point[i].setLongitude(SEISMOMETER[i].lng);
-        placemark.setGeometry(point[i]);
-        ge.getFeatures().appendChild(placemark);
-    }
-
-    // 目印オブジェクトの反映
-//    ge.getFeatures().appendChild(placemark);
-
-}
-*/
-
 // google earth apiを呼び出す
 $(function(){
     google.setOnLoadCallback(init);
