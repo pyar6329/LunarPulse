@@ -1,0 +1,31 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    margin:0;
+    padding:0;
+}
+#contents {
+    margin:0;
+    padding:0;
+    width: 100%;
+}
+#contents .s-left {
+    /*background:#F00;*/
+    width: 10%;
+    min-height: 200px;
+    float: left;
+}
+#contents .s-center {
+    /*background:#0F0;*/
+    width: 80%;
+    min-height: 200px;
+    float:left;
+}
+#contents .s-right {
+    /*background: #00F;*/
+    width: 10%;
+    min-height: 200px;
+    float:left;
+}
