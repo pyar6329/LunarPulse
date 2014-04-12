@@ -26,12 +26,10 @@ var SEISMOMETER = [
  *
  */
 
-var CAMERA_CONTROL = {'range': 1000000.0, 'tilt': 90.0};
-
+var CAMERA_CONTROL = {'range': 1000000.0, 'tilt': 47.0};
 
 var ge;
 google.load('earth', '1', {'other_params':'sensor=true_or_false'});
-
 
 // Get the current view.
 var camera;
@@ -50,7 +48,6 @@ function initCB(instance) {
     ge.getWindow().setVisibility(true);
 
     // LookAtオブジェクトの作成
-//    var lookAt = ge.createLookAt('');
     lookAt = ge.createLookAt('');
 
     // 現在いる位置をセットする
@@ -59,7 +56,7 @@ function initCB(instance) {
     lookAt.setLatitude(SEISMOMETER[seismometerId].lat); // 緯度の指定
     lookAt.setLongitude(SEISMOMETER[seismometerId].lng); // 軽度の指定
     lookAt.setRange(CAMERA_CONTROL.range); //高度の指定
-//    lookAt.setTilt(CAMERA_CONTROL.tilt); // カメラの傾きの指定
+    lookAt.setTilt(CAMERA_CONTROL.tilt); // カメラの傾きの指定
 
     // 現在いる位置を反映させる
     ge.getView().setAbstractView(lookAt);
@@ -84,54 +81,47 @@ $(function(){
     var addRightAngle = 0; // 右に何度回転したか
     var addLefAngle = 0; // 左に何度回転したか
     var MAX_ANGLE = 180; // 最大の回転角
-    var ANGLE_UP = 45; // どの位回転させるか
+    var ANGLE = 10; // どの位回転させるか
+    var LoE = 30;
     var isLeftReset = false;
-    var me = this;
+    var currentFlySpeed = 5;
+
+    // left-allowにマウスオーバーしたとき
     $('#l-allow-button').hover(
         function(){
             // マウスオーバー処理
-          //  $(this).css('opacity', 1);
-            if (camera.getRoll() >= 180) {
-                camera.setRoll(camera.getRoll() - 180);
+            ge.getOptions().setFlyToSpeed(currentFlySpeed); // カメラの移動速度を設定する
+
+            camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
+
+            if (camera.getLongitude() == -MAX_ANGLE) {
+                camera.setLongitude(camera.getLongitude() + 360);
                 isLeftReset = true;
             }
-            /*
-            console.log(camera.getRoll());
-            addLefAngle += ANGLE_UP;
-            addRightAngle -= ANGLE_UP;
-            currentRollAngle = camera.getRoll() + addRightAngle + addLefAngle;
-            camera.setRoll(currentRollAngle);
+            camera.setTilt(LoE);
+            camera.setLongitude(camera.getLongitude() - ANGLE);
 
-            if (currentRollAngle == MAX_ANGLE) {
-                // ０度に戻す。
-            }*/
-            if (camera.getRoll() !== 0) {
-                camera.setRoll(camera.getRoll() + 45);
-                isLeftReset = false;
-            }
-            console.log(camera.getRoll());
+            console.log(camera.getLongitude());
             ge.getView().setAbstractView(camera);
+
         },function(){
             // マウスアウト処理
-            //$(this).css('opacity', 0.5);
         }
     );
     $('#r-allow-button').hover(
         function(){
-//            if (camera.getRoll() <= -180) {
-//                camera.setRoll(camera.getRoll() + 180);
-//            }
-//            camera.setRoll(camera.getRoll() - 45);
             // マウスオーバー処理
-            addLefAngle -= ANGLE_UP;
-            addRightAngle += ANGLE_UP;
-            currentRollAngle = camera.getRoll() + addRightAngle;
-//            camera.setRoll(currentRollAngle);
-            //            camera.setRoll(currentRollAngle);
-//            camera.setTilt(camera.getTilt()+80);
-            console.log(currentRollAngle);
-//            if(currentRollAngle == -180){
-//            }
+            ge.getOptions().setFlyToSpeed(currentFlySpeed);
+
+            camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
+
+            if (camera.getLongitude() == MAX_ANGLE) {
+                camera.setLongitude(camera.getLongitude() - 360);
+                isLeftReset = true;
+            }
+            camera.setTilt(LoE);
+            camera.setLongitude(camera.getLongitude() + ANGLE);
+            console.log(camera.getLongitude());
             ge.getView().setAbstractView(camera);
         },function(){
             // マウスアウト処理
