@@ -1,36 +1,52 @@
-var context;
-var madeSounds = null;
-var audioURL = "/assets/audios/Smile_Quiet_Looking_Up.mp3";
-window.addEventListener('load', init, false);
-function init() {
-    try {
-        // audioのリロード
-        context = new webkitAudioContext();
-        var request = new XMLHttpRequest();
-        request.open('GET', audioURL, true);
-        request.responseType = 'arraybuffer';
-        // Decode asynchronously
-        request.onload = function() {
-            context.decodeAudioData(request.response, function(buffer) {
-                madeSounds = buffer;
-            }, onError);
-        }
-        request.send();
+var audioURL = "https://dl.dropboxusercontent.com/u/16268979/rails/Smile_Quiet_Looking_Up.mp3";
 
-        // 音の再生
-        function playSound(buffer) {
-            var source = context.createBufferSource(); // creates a sound source
-            source.buffer = buffer;                    // tell the source which sound to play
-            source.connect(context.destination);       // connect the source to the context's destination (the speakers)
-            source.noteOn(0);                          // play the source now
-        }
+// Web Audio の初期化
+var audioBuffer = null;
+var context = new webkitAudioContext();
+
+// 音を読み込む
+function loadDogSound(url, variableToBufferSound) {
+    var request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
+
+    // Decode asynchronously
+    request.onload = function() {
+        context.decodeAudioData(request.response, function(buffer) {
+            variableToBufferSoundIn = buffer;
+        }, onError);
     }
-    catch(e) {
-        alert('Web Audio API is not supported in this browser');
-    }
+    request.send();
 }
 
+// 音の再生をする
+function playSound(buffer) {
+
+    // creates a sound source
+    var source = context.createBufferSource();
+
+    // tell the source which sound to play
+    source.buffer = buffer;
+
+    // connect the source to the context's destination (the speakers)
+    source.connect(context.destination);
+
+    // play the source now
+    source.noteOn(0);
+}
+
+
+// ボタン押したときの操作
 $(function(){
+    // Create an AudioContextの作成
+    var context = initializeNewWebAudioContext();
+
+    // 音を読み込む
+    context.loadSound(audioURL, 'Smile_Quiet_Looking_Up');
+
+    // 初回時は再生する
+//    context.playSound('Smile_Quiet_Looking_Up');
+
     $('#play-button').click(function(){
         var playStatus = $('#play-button').children("img").attr('src');
         if(playStatus == "/assets/play.png"){
@@ -38,6 +54,7 @@ $(function(){
         }
         else if(playStatus == "/assets/stop.png"){
             $('#play-button').children("img").attr('src',"/assets/play.png");
+            context.playSound('Smile_Quiet_Looking_Up');
         }
     });
 });
