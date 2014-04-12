@@ -1,20 +1,11 @@
 LunarPulse::Application.routes.draw do
 
-  #get "main_page/index"
-  #get "top_page/index"
-
   root 'test_page#index'    #トップページ
-  get 'top/' => 'top_page#index' #top page
-
+  get 'main/' => 'main_page#index' # メインページ
   get 'map/' => 'moon_map#index' # 月面マップ画面
   post 'map/' => 'moon_map#index' # 月面マップ画面
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
-  
-  get 'main/' => 'main_page#index' # メインページ
 
-  # get "moon_stereo/index"
-  # get "moon_map/index"
-  # get "test_page/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
