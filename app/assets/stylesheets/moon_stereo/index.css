@@ -10,6 +10,7 @@ body {
     margin:0;
     padding:0;
     width: 100%;
+    background: #0C0C0C;
 }
 #contents .s-left {
     /*background:#F00;*/
@@ -28,4 +29,35 @@ body {
     width: 10%;
     min-height: 200px;
     float:left;
+}
+.left-allow {
+    text-align : center;
+}
+#l-allow-button {
+    opacity: 0.5;
+}
+#l-allow-button:hover {
+    opacity: 1;
+}
+
+.right-allow {
+    text-align : center;
+}
+
+#r-allow-button {
+    opacity: 0.5;
+}
+#r-allow-button:hover {
+    opacity: 1;
+}
+
+button {
+    width: auto;
+    padding:0;
+    margin:0;
+    background:none;
+    border:0;
+    line-height:0;
+    overflow:visible;
+    cursor:pointer;
 }

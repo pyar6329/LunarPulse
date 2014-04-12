@@ -33,6 +33,10 @@ var ge;
 google.load('earth', '1', {'other_params':'sensor=true_or_false'});
 
 
+// Get the current view.
+var camera;
+var lookAt;
+
 // 初期化関数
 function init() {
     // 月面を指定して初期化
@@ -46,7 +50,8 @@ function initCB(instance) {
     ge.getWindow().setVisibility(true);
 
     // LookAtオブジェクトの作成
-    var lookAt = ge.createLookAt('');
+//    var lookAt = ge.createLookAt('');
+    lookAt = ge.createLookAt('');
 
     // 現在いる位置をセットする
     var seismometerId = 0;
@@ -54,13 +59,16 @@ function initCB(instance) {
     lookAt.setLatitude(SEISMOMETER[seismometerId].lat); // 緯度の指定
     lookAt.setLongitude(SEISMOMETER[seismometerId].lng); // 軽度の指定
     lookAt.setRange(CAMERA_CONTROL.range); //高度の指定
-    lookAt.setTilt(CAMERA_CONTROL.tilt); // カメラの傾きの指定
+//    lookAt.setTilt(CAMERA_CONTROL.tilt); // カメラの傾きの指定
 
     // 現在いる位置を反映させる
     ge.getView().setAbstractView(lookAt);
 
-    // cameraオブジェクトの作成
+    // google earthが表示された後に、Allowをリサイズ
+    onResize('#map3d', '.left-allow', '.right-allow');
 
+    // cameraオブジェクトの作成
+    camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
 }
 
 
@@ -72,4 +80,61 @@ function failureCB(errorCode) {
 // google earth apiを呼び出す
 $(function(){
     google.setOnLoadCallback(init);
+    var currentRollAngle = 0; //現在の回転角
+    var addRightAngle = 0; // 右に何度回転したか
+    var addLefAngle = 0; // 左に何度回転したか
+    var MAX_ANGLE = 180; // 最大の回転角
+    var ANGLE_UP = 45; // どの位回転させるか
+    var isLeftReset = false;
+    var me = this;
+    $('#l-allow-button').hover(
+        function(){
+            // マウスオーバー処理
+          //  $(this).css('opacity', 1);
+            if (camera.getRoll() >= 180) {
+                camera.setRoll(camera.getRoll() - 180);
+                isLeftReset = true;
+            }
+            /*
+            console.log(camera.getRoll());
+            addLefAngle += ANGLE_UP;
+            addRightAngle -= ANGLE_UP;
+            currentRollAngle = camera.getRoll() + addRightAngle + addLefAngle;
+            camera.setRoll(currentRollAngle);
+
+            if (currentRollAngle == MAX_ANGLE) {
+                // ０度に戻す。
+            }*/
+            if (camera.getRoll() !== 0) {
+                camera.setRoll(camera.getRoll() + 45);
+                isLeftReset = false;
+            }
+            console.log(camera.getRoll());
+            ge.getView().setAbstractView(camera);
+        },function(){
+            // マウスアウト処理
+            //$(this).css('opacity', 0.5);
+        }
+    );
+    $('#r-allow-button').hover(
+        function(){
+//            if (camera.getRoll() <= -180) {
+//                camera.setRoll(camera.getRoll() + 180);
+//            }
+//            camera.setRoll(camera.getRoll() - 45);
+            // マウスオーバー処理
+            addLefAngle -= ANGLE_UP;
+            addRightAngle += ANGLE_UP;
+            currentRollAngle = camera.getRoll() + addRightAngle;
+//            camera.setRoll(currentRollAngle);
+            //            camera.setRoll(currentRollAngle);
+//            camera.setTilt(camera.getTilt()+80);
+            console.log(currentRollAngle);
+//            if(currentRollAngle == -180){
+//            }
+            ge.getView().setAbstractView(camera);
+        },function(){
+            // マウスアウト処理
+        }
+    );
 });
