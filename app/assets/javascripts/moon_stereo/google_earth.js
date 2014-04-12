@@ -47,11 +47,14 @@ function initCB(instance) {
     ge = instance;
     ge.getWindow().setVisibility(true);
 
+    // 現在いる位置をセットする
+    var seismometerId = 0;
+
     // LookAtオブジェクトの作成
     lookAt = ge.createLookAt('');
 
-    // 現在いる位置をセットする
-    var seismometerId = 0;
+    // cameraオブジェクトの作成
+    camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
 
     lookAt.setLatitude(SEISMOMETER[seismometerId].lat); // 緯度の指定
     lookAt.setLongitude(SEISMOMETER[seismometerId].lng); // 軽度の指定
@@ -64,8 +67,6 @@ function initCB(instance) {
     // google earthが表示された後に、Allowをリサイズ
     onResize('#map3d', '.left-allow', '.right-allow');
 
-    // cameraオブジェクトの作成
-    camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
 }
 
 
@@ -82,9 +83,9 @@ $(function(){
     var addLefAngle = 0; // 左に何度回転したか
     var MAX_ANGLE = 180; // 最大の回転角
     var ANGLE = 10; // どの位回転させるか
-    var LoE = 30;
+    var LoE = 30; //現在の傾き
     var isLeftReset = false;
-    var currentFlySpeed = 5;
+    var currentFlySpeed = 5; //現在の移動速度
 
     // left-allowにマウスオーバーしたとき
     $('#l-allow-button').hover(
