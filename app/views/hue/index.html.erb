@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "hueTest.js" %>
+<% end %>
+
 <h1>Test Page</h1>
 Moon Age:<input type="text" id="moon_age" />
 <button id="set_moon_age">Change Moon Age</button>

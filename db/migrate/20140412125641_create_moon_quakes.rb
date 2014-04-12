@@ -1,11 +1,10 @@
 class CreateMoonQuakes < ActiveRecord::Migration
   def change
-    create_table :moon_quakes do |t|
-#      t.integer :id
+    create_table :moon_quakes, :force => true do |t|
       t.integer :quake_category_id
-      t.integer :seismometer
+      t.integer :seismometer_id
       t.float :lat
-      t.float :lon
+      t.float :lng
 
       t.timestamps
     end

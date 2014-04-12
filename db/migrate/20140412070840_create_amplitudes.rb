@@ -1,6 +1,6 @@
 class CreateAmplitudes < ActiveRecord::Migration
   def change
-    create_table :amplitudes do |t|
+    create_table :amplitudes, :force => true do |t|
 #      t.integer :id
       t.float :amplitudes
       t.datetime :time

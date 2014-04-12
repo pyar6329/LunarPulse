@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 LunarPulse::Application.routes.draw do
 
+  get "moon_quake_api/api"
+  get "moonquake/test"
   get "top/index"
   get "hue/index"
   root 'test_page#index'    #トップページ

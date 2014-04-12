@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412070840) do
+ActiveRecord::Schema.define(version: 20140412130041) do
 
   create_table "amplitudes", force: true do |t|
     t.float    "amplitudes"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20140412070840) do
 
   create_table "moon_quakes", force: true do |t|
     t.integer  "quake_category_id"
-    t.integer  "seismometer"
+    t.integer  "seismometer_id"
     t.float    "lat"
-    t.float    "lon"
+    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

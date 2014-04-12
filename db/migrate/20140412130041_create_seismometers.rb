@@ -1,7 +1,6 @@
 class CreateSeismometers < ActiveRecord::Migration
   def change
-    create_table :seismometers do |t|
-#      t.integer :id
+    create_table :seismometers, :force => true do |t|
       t.string :name
       t.float :lat
       t.float :lng
