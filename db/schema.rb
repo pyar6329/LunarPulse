@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140412144931) do
 
   create_table "amplitudes", force: true do |t|
-    t.float    "apmlitude"
+    t.float    "amplitude"
     t.datetime "time"
     t.integer  "moon_quake_id"
     t.datetime "created_at"
