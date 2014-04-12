@@ -76,3 +76,8 @@ button {
     background: #0C0C0C;
     background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
 }
+/* ヘッダの色 */
+#head {
+    background: #0C0C0C;
+    background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
+}
