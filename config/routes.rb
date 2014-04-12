@@ -1,10 +1,19 @@
+# -*- coding: utf-8 -*-
 LunarPulse::Application.routes.draw do
 
+  get "moon_quake_api/api"
+  get "moonquake/test"
+  get "top/index"
+  get "hue/index"
   root 'test_page#index'    #トップページ
   get 'main/' => 'main_page#index' # メインページ
   get 'map/' => 'moon_map#index' # 月面マップ画面
   post 'map/' => 'moon_map#index' # 月面マップ画面
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
+  get 'hue/' => 'hue#index'
+
+  get "moon_quake_api/duration/:start/:end" => "moon_quake_api#duration"
+  get "moon_quake_api/:start/:end/site/:site/duration" => "moon_quake_api#siteDuration"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
