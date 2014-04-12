@@ -12,7 +12,7 @@ LunarPulse::Application.routes.draw do
   get 'hue/' => 'hue#index'
 
   get "moon_quake_api/duration/:start/:end" => "moon_quake_api#duration"
-  get "moon_quake_api/:start/:end/site/:site/duration" => "moon_quake_api#siteDuration"
+  get "moon_quake_api/duration/:start/:end/site/:site" => "moon_quake_api#siteDuration"
 
   # get "moon_stereo/index"
   # get "moon_map/index"
