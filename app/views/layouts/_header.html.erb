@@ -8,12 +8,14 @@
 <%= javascript_include_tag "http://code.jquery.com/jquery-migrate-1.2.1.min.js" %>
 <!-- Bootstrap CDN -->
 <%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" %>
+<%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" %>
 <%= javascript_include_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" %>
 <%= javascript_include_tag "hueControl.js" %>
 <title>LunarPulse</title>
 </head>
 <body>
 <div id="home" data-role="page">
-<div data-role="header">
-    <h4>This is header</h4>
+<div data-role="header" id="head">
+  <button id="play-button"><%= image_tag("play.png", :alt => "button") %></button>
 </div><!-- #header -->
+</div>
