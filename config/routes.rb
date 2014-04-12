@@ -11,6 +11,9 @@ LunarPulse::Application.routes.draw do
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
   get 'hue/' => 'hue#index'
 
+  get "moon_quake_api/duration/:start/:end" => "moon_quake_api#duration"
+  get "moon_quake_api/:start/:end/site/:site/duration" => "moon_quake_api#siteDuration"
+
   # get "moon_stereo/index"
   # get "moon_map/index"
   # get "test_page/index"

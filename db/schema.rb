@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412135243) do
+ActiveRecord::Schema.define(version: 20140412144931) do
 
   create_table "amplitudes", force: true do |t|
     t.float    "apmlitude"

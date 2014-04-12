@@ -31,5 +31,5 @@ puts('test3')
 reader = CSV.open('db/data/amplitudes.csv')
 puts(reader.shift)
 reader.each do |row|
-  Amplitudes.create(:apmlitude => row[1], :time => row[2], :moon_quake_id => row[3])
+  Amplitude.create(:apmlitude => row[1], :time => row[2], :moon_quake_id => row[3])
 end
