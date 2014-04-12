@@ -1,10 +1,13 @@
+# -*- coding: utf-8 -*-
 LunarPulse::Application.routes.draw do
 
+  get "top/index"
   get "hue/index"
   root 'test_page#index'    #トップページ
 
   get 'map/' => 'moon_map#index' # 月面マップ画面
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
+  get 'hue/' => 'hue#index'
 
   # get "moon_stereo/index"
   # get "moon_map/index"

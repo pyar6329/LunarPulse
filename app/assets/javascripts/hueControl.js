@@ -3,8 +3,9 @@
  */
 
 var url;
-var ip = '192.168.0.2';
+var ip = '192.168.11.6';
 var user = 'LunarPulse';
+var lightIds = {"14": 1, "15": 2, "16": 3};
 
 var request = new XMLHttpRequest();
 
@@ -24,7 +25,7 @@ window.onload = function()
         var moonAge = calcMoonAge(year, month, day, hour, minute);
         setMoonAge(moonAge);
         document.getElementById('moon_age').value = moonAge;
-    }
+    };
 
     document.getElementById('alloff').onclick = function(e) {
         allLightsOff();
@@ -32,6 +33,10 @@ window.onload = function()
 
     document.getElementById('allon').onclick = function(e) {
         allLightsOn();
+    };
+
+    document.getElementById('get_lights').onclick = function(e) {
+        getHueLights();
     };
 
     request.onload = function() {
@@ -42,7 +47,6 @@ window.onload = function()
         console.log(e);
     };
 };
-
 
 function calcMoonAge(year, month, day, hour, minute)
 {
@@ -61,6 +65,37 @@ function calcMoonAge(year, month, day, hour, minute)
     return moonAge;
 }
 
+function getHueLights()
+{
+    request.open('GET', 'http://'+ ip + '/api/' + user + '/lights', false);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(null);
+
+    if (request.status === 200) {
+        console.log(request.responseText);
+    }
+}
+
+// Change hue colors according to amplitude
+function setAmplitudeColor(site, amp, event)
+{
+    var id = lightIds[site]; // Light id
+
+    //TODO Set color according to the event
+    if (event == '') {
+        
+    }
+
+    //TODO Set hue according to the amplitude
+    if (amp == 0) {
+
+    }
+
+    request.open('PUT', 'http://'+ ip + '/api/' + user + '/lights/' + id + '/state');
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(JSON.stringify({'hue': 0, 'transitiontime': 1}));
+}
+
 // Moon age: 0 ~ 29.5
 // Assume full moon age: 14.8
 function setMoonAge(age)
@@ -69,7 +104,7 @@ function setMoonAge(age)
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     var brightness = Math.floor(-255*(Math.abs(age-14.8)-14.8)/14.8);
-    request.send(JSON.stringify({"bri": brightness}));
+    request.send(JSON.stringify({"bri": brightness, 'transitiontime': 1}));
 }
 
 function allLightsOff() {
