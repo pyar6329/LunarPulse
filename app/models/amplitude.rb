@@ -1,4 +1,4 @@
 class Amplitude < ActiveRecord::Base
-  belongs_to :MoonQuake
+  belongs_to :moon_quake
 
 end

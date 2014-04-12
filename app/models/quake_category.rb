@@ -1,4 +1,4 @@
 class QuakeCategory < ActiveRecord::Base
-  has_many :MoonQuakes
+  has_many :moon_quakes
 
 end
