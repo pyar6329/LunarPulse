@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-
-</head>
-<body style="margin: 0px">
-  <div style="position: absolute">
-    <canvas id="canvas" width="1280" height="720"></canvas>
+<div id="contents">
+  <div class="s-left"></div>
+  <div class="s-center">
+    <canvas id="canvas" width="1280" height="900"></canvas>
   </div>
-  <div align="center">
-    <img src="./moon0053.png" height="100%">
-  </div>
-    
-</body>
-</html>
-=======
-<h1>MoonMap#index</h1>
-<p>Find me in app/views/moon_map/index.html.erb</p>
-<p>hoge</p>
-
->>>>>>> 2e2f47c2b4ecd6c766d336df6589c3c79acc80fc
+  <div class="s-right"></div>
+  <!-- <div style="position: absolute"> -->
+  <!-- </div> -->
+  <!-- <div align="center"> -->
+    <!-- <img src="./moon0053.png" height="100%"> -->
+  <!-- </div> -->
+</div>
+<%= javascript_include_tag "moon_map/sels_draw.js" %>
+<%= stylesheet_link_tag "moon_map/index.css" %>

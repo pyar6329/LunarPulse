@@ -1,0 +1,39 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    margin:0;
+    padding:0;
+}
+#contents {
+    margin:0;
+    padding:0;
+    width: 100%;
+    background: #0C0C0C;
+}
+#contents .s-left {
+    /*background:#F00;*/
+    width: 10%;
+    min-height: 200px;
+    float: left;
+}
+#contents .s-center {
+    /*background:#0F0;*/
+    width: 80%;
+    min-height: 800px;
+    float:left;
+    background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/moon.png");
+    background-size: 100% auto;
+}
+#contents .s-right {
+    /*background: #00F;*/
+    width: 10%;
+    min-height: 200px;
+    float:left;
+}
+/* ヘッダの色 */
+#head {
+    background: #0C0C0C;
+    background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
+}
