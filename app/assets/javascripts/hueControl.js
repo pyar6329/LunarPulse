@@ -27,6 +27,14 @@ window.onload = function()
         document.getElementById('moon_age').value = moonAge;
     };
 
+    document.getElementById('set_event').onclick = function(e) {
+       var site = document.getElementById('site').value;
+       var amp = parseInt(document.getElementById('amp').value);
+       var event = document.getElementById('event').value;
+
+       setAmplitudeColor(site, amp, event);
+    };
+
     document.getElementById('alloff').onclick = function(e) {
         allLightsOff();
     };
@@ -80,20 +88,26 @@ function getHueLights()
 function setAmplitudeColor(site, amp, event)
 {
     var id = lightIds[site]; // Light id
+    var hue;
+    var sat;
 
-    //TODO Set color according to the event
-    if (event == '') {
-        
+    //Set hue according to the event
+    if (event == 'deep_moonquake') {
+        hue = 46920;
+    } else if (event == 'shallow_moonquake') {
+        hue = 30000;
+    } else if (event == 'meteoroid_impact') {
+        hue = 0;
     }
 
-    //TODO Set hue according to the amplitude
-    if (amp == 0) {
-
-    }
+    //Set saturation according to the amplitude
+    var maxAmp = 1000;
+    sat = Math.floor(255 * amp / maxAmp);
+    console.log(sat);
 
     request.open('PUT', 'http://'+ ip + '/api/' + user + '/lights/' + id + '/state');
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(JSON.stringify({'hue': 0, 'transitiontime': 1}));
+    request.send(JSON.stringify({'hue': hue, 'sat': sat, 'transitiontime': 1}));
 }
 
 // Moon age: 0 ~ 29.5
