@@ -7,8 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require "csv"
 
-
-
 reader = CSV.open('db/data/moon_quake.csv', 'r')
 reader.shift
 reader.each do |row|
