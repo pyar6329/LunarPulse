@@ -11,6 +11,7 @@ body {
     padding:0;
     width: 100%;
     background: #0C0C0C;
+    background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
 }
 #contents .s-left {
     /*background:#F00;*/
@@ -60,4 +61,18 @@ button {
     line-height:0;
     overflow:visible;
     cursor:pointer;
+}
+
+#play-button {
+    background:none;
+    opacity: 0.5;
+}
+#play-button:hover {
+    background:none;
+    opacity: 1;
+}
+/* フッタの色 */
+#foot {
+    background: #0C0C0C;
+    background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
 }
