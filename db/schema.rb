@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412130041) do
+ActiveRecord::Schema.define(version: 20140412135243) do
 
   create_table "amplitudes", force: true do |t|
-    t.float    "amplitudes"
+    t.float    "apmlitude"
     t.datetime "time"
     t.integer  "moon_quake_id"
     t.datetime "created_at"
