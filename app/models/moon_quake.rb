@@ -1,5 +1,5 @@
 class MoonQuake < ActiveRecord::Base
-  has_many :Amplitudes
-  belongs_to :Seismometer
-  belongs_to :QuakeCategory
+  has_many :amplitudes
+  belongs_to :seismometer
+  belongs_to :quake_category
 end
