@@ -18,6 +18,8 @@ LunarPulse::Application.routes.draw do
   get "moon_quake_api/duration/:start/:end/site/:site" => "moon_quake_api#getSiteDuration"
   get "moon_quake_api/start_date" => "moon_quake_api#getStartDate"
   get "moon_quake_api/end_date" => "moon_quake_api#getEndDate"
+  get "moon_quake_aip/all_seismometer" => "moon_quake_api#getAllSeismometer"
+  get "moon_quake_aip/all_quake_category" => "moon_quake_api#getAllQuakeCategory"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
