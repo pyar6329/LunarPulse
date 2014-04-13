@@ -1,5 +1,10 @@
 <html>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="/assets/main_page.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="/assets/jquery_ui/jquery.ui.core.min.js"></script>
+  <script src="/assets/jquery_ui/jquery.ui.datepicker.min.js"></script>
+  <link rel="stylesheet" href="/assets/jquery_ui/ui-lightness/jquery.ui.all.css" />
   <head>
     <title>Lunar Pulse top</title>
   </head>
@@ -12,6 +17,7 @@
 
       <p><font size="6"><i>Let's slip back in time to</i></font></p>
 	<%= form_tag('./map') do %>
+<<<<<<< HEAD
 	<p><font size="5">Start</font></p>
 	Year
 	<select name="year_from">
@@ -101,10 +107,17 @@
 	  <option value="30">30日</option>
 	  <option value="31">31日</option>
 	</select>
+=======
+	<p><font size="5">Start</font>
+    <p><input type="text" name="date_from" id="date_from" /></p>
+    <p><font size="5">End</font></p>
+    <p><input type="text" name="date_to" id="date_to" /></p>
+
+>>>>>>> d9c7db7dd3af5a91b5f4a3d79a722110fab4c4a9
 
 	</br>
 	</br>
-	<input type="submit" value="月振を体験" >
+	<input type="submit" value="Experience Lunar Pulse!" >
 	<% end %>
     </center>
   </body>

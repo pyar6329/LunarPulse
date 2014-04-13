@@ -15,12 +15,12 @@ class MoonQuakeApiController < ApplicationController
   end
 
   def getStartDate
-    time = Amplitude.maximum(:time)
+    time = Amplitude.minimum(:time)
     render :json => {'year' => time.year, 'month' => time.month, 'day' => time.day}
   end
 
   def getEndDate
-    time = Amplitude.minimum(:time)
+    time = Amplitude.maximum(:time)
     render :json => {'year' => time.year, 'month' => time.month, 'day' => time.day}
   end
 
