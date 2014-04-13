@@ -1,33 +1,33 @@
 <html>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <script type="text/javascript" src="/assets/main_page.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="/assets/jquery_ui/jquery.ui.core.min.js"></script>
-  <script src="/assets/jquery_ui/jquery.ui.datepicker.min.js"></script>
-  <link rel="stylesheet" href="/assets/jquery_ui/ui-lightness/jquery.ui.all.css" />
-  <head>
-    <title>Lunar Pulse top</title>
-  </head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/assets/main_page.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="/assets/jquery_ui/jquery.ui.core.min.js"></script>
+<script src="/assets/jquery_ui/jquery.ui.datepicker.min.js"></script>
+<link rel="stylesheet" href="/assets/jquery_ui/ui-lightness/jquery.ui.all.css" />
+<head>
+  <title>Lunar Pulse top</title>
+</head>
 
-  <body bgcolor="black" text="white" link="blue">
-      <center>
-	<p>
-	<%= image_tag 'LunarPulseLogo3.png', :alt => 'トップ画像', :width => '600', :height => '400' %>
-	</p>
+<body bgcolor="black" text="white" link="blue">
+<center>
+  <p>
+    <%= image_tag 'LunarPulseLogo3.png', :alt => 'トップ画像', :width => '600', :height => '400' %>
+  </p>
 
-      <p><font size="6"><i>Let's slip back in time to</i></font></p>
-	<%= form_tag('./map') do %>
-	<p><font size="5">Start</font>
+  <p><font size="6"><i>Let's slip back in time to</i></font></p>
+  <%= form_tag('./map') do %>
+    <p><font size="5">Start</font>
     <p><input type="text" name="date_from" id="date_from" /></p>
     <p><font size="5">End</font></p>
     <p><input type="text" name="date_to" id="date_to" /></p>
 
 
-	</br>
-	</br>
-	<input type="submit" value="Experience Lunar Pulse!" >
-	<% end %>
-    </center>
-  </body>
+    </br>
+    </br>
+    <input type="submit" value="Experience Lunar Pulse!" >
+  <% end %>
+</center>
+</body>
 
 </html>
