@@ -93,15 +93,8 @@ $(function(){
     $('#l-allow-button').hover(
         function(){
             // マウスオーバー処理
-<<<<<<< HEAD
             if (!ge) return false;
-            ge.getOptions().setFlyToSpeed(currentFlySpeed); // カメラの移動速度を設定する
-=======
-            //  $(this).css('opacity', 1);
-
-            // Set the FlyTo speed.
             ge.getOptions().setFlyToSpeed(5);
->>>>>>> 8ed285ad34b0a87dbc0b121335408402d5d6c934
 
             camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
 
@@ -133,13 +126,9 @@ $(function(){
     // right-allowにマウスオーバーしたとき
     $('#r-allow-button').hover(
         function(){
-<<<<<<< HEAD
         	if (!ge) return false;
             // マウスオーバー処理
-            ge.getOptions().setFlyToSpeed(currentFlySpeed);
-=======
             ge.getOptions().setFlyToSpeed(5);
->>>>>>> 8ed285ad34b0a87dbc0b121335408402d5d6c934
 
             camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
 
@@ -148,7 +137,7 @@ $(function(){
                 isLeftReset = true;
             }
             camera.setTilt(LoE);
-            camera.setLongitude(camera.getLongitude() + ANGLE)
+            camera.setLongitude(camera.getLongitude() + ANGLE);
 
             // マウスオーバー処理
             // addLefAngle -= ANGLE_UP;
