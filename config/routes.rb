@@ -8,8 +8,8 @@ LunarPulse::Application.routes.draw do
   # root 'test_page#index'    #トップページ
   # get 'main/' => 'main_page#index' # メインページ
   root 'main_page#index' #トップページ
-  get 'map/' => 'moon_map#index' # 月面マップ画面
-  # post 'map/' => 'moon_map#index' # 月面マップ画面
+  # get 'map/' => 'moon_map#index' # 月面マップ画面
+  post 'map/' => 'moon_map#index' # 月面マップ画面
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
   get 'hue/' => 'hue#index'
 
