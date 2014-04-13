@@ -3,15 +3,15 @@
  */
 
 var url;
-var ip = '192.168.11.6';
-var user = 'LunarPulse';
-var lightIds = {"14": 1, "15": 2, "16": 3};
+var hueIP = '192.168.11.6';
+var hueUser = 'LunarPulse';
+//var lightIds = {"14": 1, "15": 2, "16": 3};
 
-var request = new XMLHttpRequest();
-request.onload = function() {
+var hueRequest = new XMLHttpRequest();
+hueRequest.onload = function() {
     console.log(JSON.parse(this.responseText));
 };
-request.onerror = function(e) {
+hueRequest.onerror = function(e) {
     console.log(e);
 };
 
@@ -34,60 +34,64 @@ function calcMoonAge(year, month, day, hour, minute)
 
 function getHueLights()
 {
-    request.open('GET', 'http://'+ ip + '/api/' + user + '/lights', false);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(null);
+    hueRequest.open('GET', 'http://'+ hueIP + '/api/' + hueUser + '/lights', false);
+    hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    hueRequest.send(null);
 
-    if (request.status === 200) {
-        console.log(request.responseText);
+    if (hueRequest.status === 200) {
+        console.log(hueRequest.responseText);
     }
 }
 
 // Change hue colors according to amplitude
 function setAmplitudeColor(site, amp, event)
 {
-    var id = lightIds[site]; // Light id
+    var id = site;//lightIds[site]; // Light id
     var hue;
     var sat;
 
     //Set hue according to the event
-    if (event == 'deep_moonquake') {
+    if (event == 1) { //'deep_moonquake') {
         hue = 46920;
-    } else if (event == 'shallow_moonquake') {
+    } else if (event == 2) { //'shallow_moonquake') {
         hue = 30000;
-    } else if (event == 'meteoroid_impact') {
+    } else if (event == 3) { //'meteoroid_impact') {
         hue = 0;
     }
 
     //Set saturation according to the amplitude
-    var maxAmp = 1000;
+    var maxAmp = 500;
     sat = Math.floor(255 * amp / maxAmp);
+    if(sat > 255) {
+        sat = 255;
+    }
+    console.log(amp);
     console.log(sat);
 
-    request.open('PUT', 'http://'+ ip + '/api/' + user + '/lights/' + id + '/state');
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(JSON.stringify({'hue': hue, 'sat': sat, 'transitiontime': 1}));
+    hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/lights/' + id + '/state');
+    hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    hueRequest.send(JSON.stringify({'hue': hue, 'sat': sat, 'transitiontime': 1}));
 }
 
 // Moon age: 0 ~ 29.5
 // Assume full moon age: 14.8
 function setMoonAge(age)
 {
-    request.open('PUT', 'http://'+ ip + '/api/' + user + '/groups/0/action');
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
+    hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     var brightness = Math.floor(-255*(Math.abs(age-14.8)-14.8)/14.8);
-    request.send(JSON.stringify({"bri": brightness, 'transitiontime': 1}));
+    hueRequest.send(JSON.stringify({"bri": brightness, 'transitiontime': 1}));
 }
 
 function allLightsOff() {
-    request.open('PUT', 'http://'+ ip + '/api/' + user + '/groups/0/action');
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(JSON.stringify({'on': false}));
+    hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
+    hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    hueRequest.send(JSON.stringify({'on': false}));
 }
 
 function allLightsOn() {
-    request.open('PUT', 'http://'+ ip + '/api/' + user + '/groups/0/action');
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(JSON.stringify({'on': true}));
+    hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
+    hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    hueRequest.send(JSON.stringify({'on': true}));
 }
