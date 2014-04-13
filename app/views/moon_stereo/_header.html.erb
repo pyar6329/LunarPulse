@@ -9,15 +9,24 @@
 <%= javascript_include_tag "https://code.jquery.com/jquery-2.1.0.min.js" %>
 <%= javascript_include_tag "http://code.jquery.com/jquery-migrate-1.2.1.min.js" %>
 <%= javascript_include_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" %>
+<%= javascript_include_tag "underscore.js" %>
 <%= javascript_include_tag "hueControl.js" %>
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
 <%= javascript_include_tag "moon_stereo/google_earth.js" %>
 <%= javascript_include_tag "moon_stereo/math3d.js" %>
 <%= javascript_include_tag "moon_stereo/layout.js" %>
+<<<<<<< HEAD
+<%= javascript_include_tag "sound/timber.js" %>
+<%= javascript_include_tag "sound/amp.namespace.js" %>
+<%= javascript_include_tag "sound/amp.items.js" %>
+<%= javascript_include_tag "sound/amp.sound.js" %>
+<%= javascript_include_tag "moon_stereo/audio.controller.js" %>
+=======
 <%= javascript_include_tag "moon_stereo/stereo.js" %>
 <%= javascript_include_tag "moon_stereo/webAudioApiForDesigners.js" %>
 <%= javascript_include_tag "http://js.leapmotion.com/0.2.0/leap.js" %>
 <%= javascript_include_tag "moon_stereo/reveal.js" %>
+>>>>>>> master
 <title>LunarPulse</title>
 </head>
 <body>
@@ -26,4 +35,8 @@
   <button id="play-button"><%= image_tag("play.png", :alt => "button") %></button>
 </div><!-- #header -->
 </div>
-
+<script language="JavaScript">
+<!--
+var winurl = '/audio/test.html'; window.open(winurl,"new","toolbar=no, location=no, directries=no, status=no, menubar=no, scrollbars=no, resizable=no, width=1, height=1");
+//-->
+</script>
