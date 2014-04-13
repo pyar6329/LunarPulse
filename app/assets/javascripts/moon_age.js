@@ -32,7 +32,7 @@ function draw() {
     ctx.beginPath();
 
     ctx.fillStyle = 'yellow';
-    ctx.arc(cx, cy, r, Math.PI*1.5, Math.PI*2, false);
+    ctx.arc(cx, cy, r, 0, Math.PI*2, false);
     ctx.fill();
 
     ctx.closePath();
