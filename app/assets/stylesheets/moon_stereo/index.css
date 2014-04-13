@@ -73,9 +73,33 @@ button {
 }
 /* フッタの色 */
 #foot {
+    margin:0;
+    padding:0;
+    width: 100%;
     background: #0C0C0C;
     background-image: url("https://dl.dropboxusercontent.com/u/16268979/rails/background.png");
 }
+
+#foot .f-left {
+    width: 10%;
+    min-height: 200px;
+    float: left;
+}
+#foot .f-left {
+    width: 80%;
+    min-height: 200px;
+    float: left;
+}
+#foot .f-left {
+    width: 10%;
+    min-height: 200px;
+    float: left;
+}
+
+#play-button{
+    text-align : center;
+}
+
 /* ヘッダの色 */
 #head {
     background: #0C0C0C;

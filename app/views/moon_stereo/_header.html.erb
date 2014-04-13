@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" %>
+<%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" %>
+<%= stylesheet_link_tag "moon_stereo/index.css" %>
+<%= javascript_include_tag "https://code.jquery.com/jquery-2.1.0.min.js" %>
+<%= javascript_include_tag "http://code.jquery.com/jquery-migrate-1.2.1.min.js" %>
+<%= javascript_include_tag "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" %>
+<%= javascript_include_tag "hueControl.js" %>
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= javascript_include_tag "moon_stereo/google_earth.js" %>
+<%= javascript_include_tag "moon_stereo/math3d.js" %>
+<%= javascript_include_tag "moon_stereo/layout.js" %>
+<%= javascript_include_tag "moon_stereo/stereo.js" %>
+<%= javascript_include_tag "moon_stereo/webAudioApiForDesigners.js" %>
+<title>LunarPulse</title>
+</head>
+<body>
+<div id="home" data-role="page">
+<div data-role="header" id="head">
+  <button id="play-button"><%= image_tag("play.png", :alt => "button") %></button>
+</div><!-- #header -->
+</div>
+
