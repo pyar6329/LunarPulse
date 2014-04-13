@@ -16,7 +16,7 @@ callbacks.hoge = function(amp, next_amp) {
     $(categories[amp.seismometer_id]).animate({
         'width': size + 'px',
         'height': size + 'px',
-        'border-radius': size + 'px',		
+        'border-radius': size + 'px'
     });
     $(categories[amp.seismometer_id])
         .css('background', colors[amp.quake_category_id]);
