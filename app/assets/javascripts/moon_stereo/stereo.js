@@ -33,7 +33,7 @@ request.onload = function() {
     context.decodeAudioData(request.response, function(theBuffer) {
         buffer = theBuffer;
     }, onError);
-}
+};
 request.send();
 
 // ---------end Loading and Playing Sounds-----------------------------
