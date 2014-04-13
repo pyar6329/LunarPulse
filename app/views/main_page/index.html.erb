@@ -1,125 +1,33 @@
 <html>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <script type="text/javascript" src="/assets/main_page.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="/assets/jquery_ui/jquery.ui.core.min.js"></script>
-  <script src="/assets/jquery_ui/jquery.ui.datepicker.min.js"></script>
-  <link rel="stylesheet" href="/assets/jquery_ui/ui-lightness/jquery.ui.all.css" />
-  <head>
-    <title>Lunar Pulse top</title>
-  </head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/assets/main_page.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="/assets/jquery_ui/jquery.ui.core.min.js"></script>
+<script src="/assets/jquery_ui/jquery.ui.datepicker.min.js"></script>
+<link rel="stylesheet" href="/assets/jquery_ui/ui-lightness/jquery.ui.all.css" />
+<head>
+  <title>Lunar Pulse top</title>
+</head>
 
-  <body bgcolor="black" text="white" link="blue">
-      <center>
-	<p>
-	<%= image_tag 'LunarPulseLogo3.png', :alt => 'トップ画像', :width => '600', :height => '400' %>
-	</p>
+<body bgcolor="black" text="white" link="blue">
+<center>
+  <p>
+    <%= image_tag 'LunarPulseLogo3.png', :alt => 'トップ画像', :width => '600', :height => '400' %>
+  </p>
 
-      <p><font size="6"><i>Let's slip back in time to</i></font></p>
-	<%= form_tag('./map') do %>
-<<<<<<< HEAD
-	<p><font size="5">Start</font></p>
-	Year
-	<select name="year_from">
-	  <option value="1976">1976年</option>
-	</select>
-	Month
-	<select name="month_from">
-	  <option value="1">1月</option>
-	  <option value="2">2月</option>
-	</select>
-	Day
-	<select name="day_from">
-	  <option value="1">1日</option>
-	  <option value="2">2日</option>
-	  <option value="3">3日</option>
-	  <option value="4">4日</option>
-	  <option value="5">5日</option>
-	  <option value="6">6日</option>
-	  <option value="7">7日</option>
-	  <option value="8">8日</option>
-	  <option value="9">9日</option>
-	  <option value="10">10日</option>
-	  <option value="11">11日</option>
-	  <option value="12">12日</option>
-	  <option value="13">13日</option>
-	  <option value="14">14日</option>
-	  <option value="15">15日</option>
-	  <option value="16">16日</option>
-	  <option value="17">17日</option>
-	  <option value="18">18日</option>
-	  <option value="19">19日</option>
-	  <option value="20">20日</option>
-	  <option value="21">21日</option>
-	  <option value="22">22日</option>
-	  <option value="23">23日</option>
-	  <option value="24">24日</option>
-	  <option value="25">25日</option>
-	  <option value="26">26日</option>
-	  <option value="27">27日</option>
-	  <option value="28">28日</option>
-	  <option value="29">29日</option>
-	  <option value="30">30日</option>
-	  <option value="31">31日</option>
-	</select>
-
-	<p><font size="5">End</font></p>
-	Year
-	<select name="year_to">
-	  <option value="1976">1976年</option>
-	</select>
-	Month
-	<select name="month_to">
-	  <option value="1">1月</option>
-	  <option value="2">2月</option>
-	</select>
-	Day
-	<select name="day_to">
-	  <option value="1">1日</option>
-	  <option value="2">2日</option>
-	  <option value="3">3日</option>
-	  <option value="4">4日</option>
-	  <option value="5">5日</option>
-	  <option value="6">6日</option>
-	  <option value="7">7日</option>
-	  <option value="8">8日</option>
-	  <option value="9">9日</option>
-	  <option value="10">10日</option>
-	  <option value="11">11日</option>
-	  <option value="12">12日</option>
-	  <option value="13">13日</option>
-	  <option value="14">14日</option>
-	  <option value="15">15日</option>
-	  <option value="16">16日</option>
-	  <option value="17">17日</option>
-	  <option value="18">18日</option>
-	  <option value="19">19日</option>
-	  <option value="20">20日</option>
-	  <option value="21">21日</option>
-	  <option value="22">22日</option>
-	  <option value="23">23日</option>
-	  <option value="24">24日</option>
-	  <option value="25">25日</option>
-	  <option value="26">26日</option>
-	  <option value="27">27日</option>
-	  <option value="28">28日</option>
-	  <option value="29">29日</option>
-	  <option value="30">30日</option>
-	  <option value="31">31日</option>
-	</select>
-=======
-	<p><font size="5">Start</font>
+  <p><font size="6"><i>Let's slip back in time to</i></font></p>
+  <%= form_tag('./map') do %>
+    <p><font size="5">Start</font>
     <p><input type="text" name="date_from" id="date_from" /></p>
     <p><font size="5">End</font></p>
     <p><input type="text" name="date_to" id="date_to" /></p>
 
->>>>>>> d9c7db7dd3af5a91b5f4a3d79a722110fab4c4a9
 
-	</br>
-	</br>
-	<input type="submit" value="Experience Lunar Pulse!" >
-	<% end %>
-    </center>
-  </body>
+    </br>
+    </br>
+    <input type="submit" value="Experience Lunar Pulse!" >
+  <% end %>
+</center>
+</body>
 
 </html>
