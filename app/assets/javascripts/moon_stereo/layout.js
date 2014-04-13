@@ -7,7 +7,7 @@ function onResize(mapElem, leftElem, rightElem) {
     };
     $(leftElem).find("img").css("margin-top", (mapHeight - arrows.left) / 2);
     $(rightElem).find("img").css("margin-top", (mapHeight - arrows.right) / 2);
-};
+}
 
 // windowサイズを変更ごとにリサイズ
 $(window).resize(function() {

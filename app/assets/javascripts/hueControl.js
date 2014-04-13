@@ -7,13 +7,6 @@ var hueIP = '192.168.11.6';
 var hueUser = 'LunarPulse';
 //var lightIds = {"14": 1, "15": 2, "16": 3};
 
-var hueRequest = new XMLHttpRequest();
-hueRequest.onload = function() {
-    console.log(JSON.parse(this.responseText));
-};
-hueRequest.onerror = function(e) {
-    console.log(e);
-};
 
 function calcMoonAge(year, month, day, hour, minute)
 {
@@ -34,6 +27,13 @@ function calcMoonAge(year, month, day, hour, minute)
 
 function getHueLights()
 {
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
     hueRequest.open('GET', 'http://'+ hueIP + '/api/' + hueUser + '/lights', false);
     hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     hueRequest.send(null);
@@ -46,6 +46,13 @@ function getHueLights()
 // Change hue colors according to amplitude
 function setAmplitudeColor(site, amp, event)
 {
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
     var id = site;//lightIds[site]; // Light id
     var hue;
     var sat;
@@ -65,7 +72,9 @@ function setAmplitudeColor(site, amp, event)
     if(sat > 255) {
         sat = 255;
     }
-    console.log(amp);
+
+    console.log(event);
+    console.log(hue);
     console.log(sat);
 
     hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/lights/' + id + '/state');
@@ -77,6 +86,20 @@ function setAmplitudeColor(site, amp, event)
 // Assume full moon age: 14.8
 function setMoonAge(age)
 {
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
     hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
     hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
@@ -85,12 +108,26 @@ function setMoonAge(age)
 }
 
 function allLightsOff() {
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
     hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
     hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     hueRequest.send(JSON.stringify({'on': false}));
 }
 
 function allLightsOn() {
+    var hueRequest = new XMLHttpRequest();
+    hueRequest.onload = function() {
+        console.log(JSON.parse(this.responseText));
+    };
+    hueRequest.onerror = function(e) {
+        console.log(e);
+    };
     hueRequest.open('PUT', 'http://'+ hueIP + '/api/' + hueUser + '/groups/0/action');
     hueRequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     hueRequest.send(JSON.stringify({'on': true}));

@@ -1,35 +1,42 @@
-<% content_for :javascript_includes do %>
-    <%= javascript_include_tag "hueControl.js" "hueTest.js" %>
-<% end %>
+<!DOCTYPE html>
+    <head>
+      <%= javascript_include_tag "https://code.jquery.com/jquery-2.1.0.min.js" %>
+      <%= javascript_include_tag "http://code.jquery.com/jquery-migrate-1.2.1.min.js" %>
+    <%= javascript_include_tag "hueControl.js" %>
+    <%= javascript_include_tag "hueTest.js" %>
+    </head>
 
-<h1>Test Page</h1>
-Moon Age:<input type="text" id="moon_age" />
-<button id="set_moon_age">Change Moon Age</button>
-<br />
-Date:<input type="text" id="year" />
-<input type="text" id="month" />
-<input type="text" id="day" />
-<input type="text" id="hour" />
-<input type="text" id="minute" />
-<button type="button" id="calc_moon_age">Change Moon Age by date</button>
-<br />
-<br />
+    <body>
+    <h1>Test Page</h1>
+    Moon Age:<input type="text" id="moon_age" />
+    <button id="set_moon_age">Change Moon Age</button>
+    <br />
+    Date:<input type="text" id="year" />
+    <input type="text" id="month" />
+    <input type="text" id="day" />
+    <input type="text" id="hour" />
+    <input type="text" id="minute" />
+    <button type="button" id="calc_moon_age">Change Moon Age by date</button>
+    <br />
+    <br />
 
 Site: <select id="site">
         <option value="1">14</option>
         <option value="2">15</option>
         <option value="3">16</option>
       </select> <br />
-Event: <select id="event">
+    Event: <select id="event">
         <option value="deep_moonquake">Deep Moonquake</option>
         <option value="shallow_moonquake">Shallow Moonquake</option>
         <option value="meteoroid_impact">Meteoroid Impact</option>
        </select> <br />
-Amplitude: <input type="text" id="amp"> <br />
-<button id="set_event">Set Event</button> <br />
+    Amplitude: <input type="text" id="amp"> <br />
+    <button id="set_event">Set Event</button> <br />
 
-<button id="alloff">All Off</button>
-<br />
-<button id="allon">All On</button>
-<br />
-<button id="get_lights">Get Lights</button>
+    <button id="alloff">All Off</button>
+    <br />
+    <button id="allon">All On</button>
+    <br />
+    <button id="get_lights">Get Lights</button>
+    </body>
+</html>
