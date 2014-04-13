@@ -6,6 +6,7 @@ LunarPulse::Application.routes.draw do
   get "top/index"
   get "hue/index"
   # root 'test_page#index'    #トップページ
+  get 'test/' => 'test_page#index' #テストページ
   # get 'main/' => 'main_page#index' # メインページ
   root 'main_page#index' #トップページ
   # get 'map/' => 'moon_map#index' # 月面マップ画面
