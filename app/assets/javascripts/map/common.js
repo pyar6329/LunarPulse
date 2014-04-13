@@ -1,12 +1,20 @@
+/**
+ * Created by ryohei on 2014/04/13.
+ */
+
+var timeCounter;
+
 $(document).ready(function() {
     var arr = [];
     var startTime = $('#start_time').length ? $('#start_time').val() :null;
+    timeCounter = new Date(startTime);
     var endTime = $('#end_time').length ? $('#end_time').val() :null;
     var url = '/moon_quake_api/duration/' + startTime + '/' + endTime;
     $.get(url, function(amps) {
-        delayRender(amps, 'hoge', 1000);
+        delayRender(amps, 'hoge', 100);
     },'JSON');
 });
+
 var callbacks = {};
 callbacks.hoge = function(amp, next_amp) {
     if (!next_amp) return;
@@ -34,9 +42,17 @@ function delayRender(data, callbackName, msec) {
     function f() {
         if (!data.length) return;
         var param = data[0];
-        data.shift();
-        callbacks[callbackName](param, data[0]);
-        setTimeout(function() {f();}, msec);
-    };
+
+        var time = new Date(param.time);
+
+        if(time.getTime() >= timeCounter.getTime()) {
+            data.shift();
+            callbacks[callbackName](param, data[0]);
+            f();
+        } else {
+            timeCounter.setTime(timeCounter.getTime() + 60000);
+            setTimeout(function () {f();}, msec);
+        }
+    }
     f();
 }
