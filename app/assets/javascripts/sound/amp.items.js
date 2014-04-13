@@ -26,53 +26,53 @@ Amplitude.Items = function() {
                         freq: 8,
                         fine: 0
                     },
-                    'fami': {
-                        volume: 0.001,
+                    'oscx': {
+                        volume: 0.6,
                         waveform: 3,
                         freq: 1,
                         fine: 0
                     }
                 }
             },
-            prelude: "C4"
+			prelude: "A1 E2 C2"
         },
         'apollo15': {
             type: {
                 "osc": {
                     'tri': {
-                        volume: 2,
+                        volume: 0,
                         waveform: 1,
                         freq: 8,
                         fine: 0
                     },
                     'pulse': {
-                        volume: 0.45,
+                        volume: 0.4,
                         waveform: 3,
                         freq: 1,
                         fine: 0
                     }
                 }
             },
-            prelude: "B5 C8 C9 C3"
+            prelude: "A1 C2 CE B8"
         },
         'apollo16': {
             type: {
                 "osc": {
                     'tri': {
-                        volume: 0.3,
+                        volume: 0.2,
                         waveform: 1,
                         freq: 8,
                         fine: 0
                     },
                     'pulse': {
-                        volume: 0.45,
+                        volume: 0.5,
                         waveform: 3,
                         freq: 1,
                         fine: 0
                     }
                 }
             },
-            prelude: "B5 C8 C9 C3"
+            prelude: "A1 C2 CE D8"
         }
     };
 };

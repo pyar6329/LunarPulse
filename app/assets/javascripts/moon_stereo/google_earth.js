@@ -91,6 +91,7 @@ $(function(){
     $('#l-allow-button').hover(
         function(){
             // マウスオーバー処理
+            if (!ge) return false;
             ge.getOptions().setFlyToSpeed(currentFlySpeed); // カメラの移動速度を設定する
 
             camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
@@ -111,6 +112,7 @@ $(function(){
     );
     $('#r-allow-button').hover(
         function(){
+        	if (!ge) return false;
             // マウスオーバー処理
             ge.getOptions().setFlyToSpeed(currentFlySpeed);
 

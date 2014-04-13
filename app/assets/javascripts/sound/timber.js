@@ -1,7 +1,6 @@
 /**
  * timbre.js v12.12.12 / JavaScript Library for Objective Sound Programming
  */
-;
 var timbre = (function(context, timbre) {
     "use strict";
 
