@@ -46,6 +46,8 @@ function getHueLights()
 // Change hue colors according to amplitude
 function setAmplitudeColor(site, amp, event)
 {
+    console.log('asdlk');
+
     var hueRequest = new XMLHttpRequest();
     hueRequest.onload = function() {
         console.log(JSON.parse(this.responseText));
@@ -54,6 +56,7 @@ function setAmplitudeColor(site, amp, event)
         console.log(e);
     };
     var id = site;//lightIds[site]; // Light id
+    console.log(id);
     var hue;
     var sat;
 
