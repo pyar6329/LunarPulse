@@ -11,6 +11,6 @@
 - Susumu Ito
 - Hiroaki Enomoto
 
-####Friends
+###Friends
 - Ryuhei Yamada
 - Kousei Yamamoto
