@@ -1,4 +1,3 @@
-####Copyright (c) 2014 [LunarPulse](http://lunarpulse.herokuapp.com/)
 #LunarPulse Members
 
 ###Heroes

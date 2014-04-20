@@ -1,8 +1,9 @@
 The MIT License (MIT)
 
-Copyright (c) 2014 [LunarPulse](http://lunarpulse.herokuapp.com/)
+Copyright (c) 2014 LunarPulse
+http://lunarpulse.herokuapp.com/
 
-Regarding contributors, see files below AUTHOR files.
+Regarding contributors, see files below AUTHORS.md files.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
