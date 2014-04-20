@@ -34,7 +34,7 @@ Mouseover left allow and right allow, besides spin the surface of the moon.
 You are healed more and more if you are able to use LeapMotion instead of mouseover, and Phillips Hue as lights.
 
 ##Others
-Other description is uploaded in slideshare.
+Regarding other description, see slideshare.
 
  [http://www.slideshare.net/pyar6329/what-is-lunarpulse](http://www.slideshare.net/pyar6329/what-is-lunarpulse)
 
