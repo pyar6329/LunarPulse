@@ -1,6 +1,6 @@
 #LunarPulse
 
-日本語版はREADME_ja.mdを参照してください。
+日本語版は[README_ja.md](https://github.com/pyar6329/LunarPulse/blob/mk_copylight/README_ja.md)を参照してください。
 
 [![Build Status](https://travis-ci.org/pyar6329/LunarPulse.svg)](https://travis-ci.org/pyar6329/LunarPulse)
 
