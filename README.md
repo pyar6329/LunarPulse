@@ -7,22 +7,20 @@
 ###[http://lunarpulse.herokuapp.com/](http://lunarpulse.herokuapp.com/)
 
 ##Concepts
-###Baby is healed by listening to the beat of the mother heart, and sleep.
+###Mother's heartbeat heals a baby and leads to sleep.
 ###Would are you healed by listening the beat of the moon heart?
 
-##What's is this?
-LunarPulse is Web Application healing you by using sounds and lights.
-Sounds hears as if sounds is the beat of the moon heart,
-Lights looks as if lights is shaken,
-LunarPulse is ran along time of moonquake.
-You are healed more if you have Phillips Hue and Leap Motion.
+##What is this?
+LunarPulse is a Web Application healing you by using sounds and lights.
+Along time flow of Moonquakes, it sounds like the moon heart and lights like fluctuation.
+If you have Phillips Hue and Leap Motion, they heal you more.
 
 ##Screen transition
 ###Top page
-All the beginning is here.
-Input start time and end time of Moonquake, and You are able to feel lights and the beat of the moon heart.
+All begins here.
+Input start and end time of Moonquakes, and you are able to feel the moon heart.
 
-Let's push `Experience Lunar Pulse!` button so start LunarPulse.
+Let's push `Experience Lunar Pulse!` button to start LunarPulse.
 
 ###Moon maps
 Moon maps appeal to the your eye to the beat of the moon heart.
@@ -30,17 +28,17 @@ You are able to go to Moon studio if click on a beat of the moon heart.
 
 ###Moon studio
 Moon studio is more understandable than moon maps.
-Mouseover left allow and right allow, besides spin the surface of the moon.
-You are healed more and more if you are able to use LeapMotion instead of mouseover, and Phillips Hue as lights.
+Mouseover left or right allows, you are able to spin the moon surface.
+You are healed more and more if you are able to use LeapMotion as mouseover and Phillips Hue as lights.
 
 ##Others
-Regarding other description, see slideshare.
+For other description, please see slideshare.
 
  [http://www.slideshare.net/pyar6329/what-is-lunarpulse](http://www.slideshare.net/pyar6329/what-is-lunarpulse)
 
 
 ##Installation on local PC
-Input below commands if you want to run LunarPulse on local PC.
+Input below commands if you want to run LunarPulse on your local PC.
 ```bash
 $ git clone https://github.com/pyar6329/LunarPulse.git
 $ bundle install --without production
