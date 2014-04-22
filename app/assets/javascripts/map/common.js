@@ -3,12 +3,14 @@
  */
 
 var timeCounter;
+var timeCounterEnd;
 
 $(document).ready(function() {
     var arr = [];
     var startTime = $('#start_time').length ? $('#start_time').val() :null;
     timeCounter = new Date(startTime);
     var endTime = $('#end_time').length ? $('#end_time').val() :null;
+    timeCounterEnd = new Date(endTime);
     var url = '/moon_quake_api/duration/' + startTime + '/' + endTime;
     $.get(url, function(amps) {
         delayRender(amps, 'hoge', 100);
@@ -19,15 +21,22 @@ var callbacks = {};
 callbacks.hoge = function(amp, next_amp) {
     if (!next_amp) return;
     var categories = ['.apollo14', '.apollo15', '.apollo16'];
-    var colors = ['#300', '#030', '#003'];
+    var colors = ['#003', '#030', '#300'];
     var size = parseAmplitude(amp.amplitude);
-    $(categories[amp.seismometer_id]).animate({
-        'width': size + 'px',
-        'height': size + 'px',
-        'border-radius': size + 'px'
-    });
-    $(categories[amp.seismometer_id])
-        .css('background', colors[amp.quake_category_id]);
+    $(categories[amp.seismometer_id-1]).animate(
+        {
+            'width': size + 'px',
+            'height': size + 'px',
+            'border-radius': size + 'px',
+            'background': colors[amp.quake_category_id-1]
+        },
+        {
+            queue: false,
+            always: function(animation, jumpedToEnd){
+            }
+        }
+    );
+    $(categories[amp.seismometer_id-1]).background = colors[amp.quake_category_id-1];
 };
 
 function parseAmplitude(amplitude) {
@@ -40,9 +49,8 @@ function parseAmplitude(amplitude) {
 function delayRender(data, callbackName, msec) {
     if (!data) return false;
     function f() {
-        if (!data.length) return;
+        if (timeCounter.getTime() > timeCounterEnd.getTime()) return;
         var param = data[0];
-
         var time = new Date(param.time);
 
         if(time.getTime() <= timeCounter.getTime()) {
@@ -51,7 +59,7 @@ function delayRender(data, callbackName, msec) {
             f();
         } else {
             document.getElementById('time').innerHTML = timeCounter.toString();
-            timeCounter.setTime(timeCounter.getTime() + 300000);
+            timeCounter.setTime(timeCounter.getTime() + 600000);
             setTimeout(function () {f();}, msec);
         }
     }

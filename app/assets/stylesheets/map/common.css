@@ -31,8 +31,8 @@ html , body  {
 #box a.apollo15,
 #box a.apollo16 {
     background: #FFF;
-    width: 30px;
-    height: 30px;
+    width: 0px;
+    height: 0px;
     border-radius: 30px;
     text-indent: -9999pt;
     text-decoration: none;
