@@ -1,19 +1,12 @@
 /**
  * 振幅から音を再現するオブジェクト
- * @package sound/amp.sound.js
+ * @package sound/amp.Amplitude.Sound.js
  * @author Noguchi Hiroshi
  * @created 2014/04/11
  * @namespace Amplitude
  * @version 1.00
  */
-Amplitude.Sound = (function() {
-
-    /**
-     * サウンドイベントのコンストラクタ
-     * @constructor
-     */
-    var Sound = function () {
-
+Amplitude.Sound = function () {
         /**
          * 種類データ
          * @type {Amplitude.Items}
@@ -49,12 +42,17 @@ Amplitude.Sound = (function() {
          */
         this._types = [];
 
+		this._base = T('audio', "/audio/test.mp3", false);
         this._enves = {
-            env1: T("adsr", 1000, 10, 1, 0, 100),
-            env2: T("adsr", 0, 400, 0.1)
+            env1: T("adsr", 10, 10, 1, 0, 100),
+            env2: T("adsr", 0, 200, 0)
         };
-    };
+};
 
+Amplitude.Sound.prototype.init = function() {
+	this._types = [];	
+};
+	
     /**
      * サウンドを再生する。
      * @param amplitude
@@ -62,7 +60,7 @@ Amplitude.Sound = (function() {
      * @param end
      * @param itemName
      */
-    Sound.prototype.play = function(amplitude, start, end, itemName) {
+    Amplitude.Sound.prototype.play = function(amplitude, start, end, itemName) {
         var item = this.items.getItem(itemName);
         var melodies = T("+");
         var score = this._getScore(this.items.getPrelude(itemName));
@@ -71,7 +69,7 @@ Amplitude.Sound = (function() {
                 this._types.push(T(
                     typeName,
                     categoryName,
-                    T('glide', 5, 880),
+                    T('glide', 2, 680),
                     item.type[typeName][categoryName].volume
                 ));
             }
@@ -79,9 +77,10 @@ Amplitude.Sound = (function() {
         _.each(this._types, function(v) {
             melodies.append(v);
         });
+        var self = this;
         var vcf  = T("rlpf", T("+", 30000, this._enves.env1).kr(), melodies);
         var vca  = T("*", vcf, this._enves.env2);
-        var efx1 = T("efx.dist", 0, 100, 100, vca).off();
+        var efx1 = T("efx.dist", 0, 0, 0, vca).off();
         var efx2 = T("efx.chorus", efx1);
         var basePlayer = T("efx.delay" , efx2);
         var subPlayer = this._getSubPlayer(score, amplitude);
@@ -89,15 +88,15 @@ Amplitude.Sound = (function() {
             subPlayer.on().bang();
         };
         basePlayer.onpause = function() {
-            subPlayer.off();
+        	basePlayer.removeAll();
         };
         basePlayer.play();
         _.delay(basePlayer.onpause, this._getLoadTime(start, end));
     };
 
-    Sound.prototype._getSubPlayer = function(score, amplitude) {
+    Amplitude.Sound.prototype._getSubPlayer = function(score, amplitude) {
         var self = this;
-        var subPlayer = T("interval", this.timbre.utils.bpm2msec(13, 10), function() {
+        var subPlayer = T("interval", this.timbre.utils.bpm2msec(20, 30), function() {
             var note = score[subPlayer.count % score.length];
             for (var i = 0; i < self._types.length; i++) {
                 self._types[i].freq.value = amplitude + self._getM64tof(note);
@@ -105,6 +104,7 @@ Amplitude.Sound = (function() {
             for (var k in self._enves) {
                 self._enves[k].bang();
             }
+            //self._base.load();
         });
         return subPlayer;
     };
@@ -115,7 +115,7 @@ Amplitude.Sound = (function() {
      * @returns {number}
      * @private
      */
-    Sound.prototype._getM64tof = function(m64) {
+    Amplitude.Sound.prototype._getM64tof = function(m64) {
         return 20 * Math.pow(Math.pow(2, (1/(12*64))), m64 - (69*64));
     };
 
@@ -126,7 +126,7 @@ Amplitude.Sound = (function() {
      * @returns {number}
      * @private
      */
-    Sound.prototype._getLoadTime = function(start, end) {
+    Amplitude.Sound.prototype._getLoadTime = function(start, end) {
         return end - start;
     };
 
@@ -135,7 +135,7 @@ Amplitude.Sound = (function() {
      * @returns {Array}
      * @private
      */
-    Sound.prototype._getScore = function(prelude) {
+    Amplitude.Sound.prototype._getScore = function(prelude) {
         var result = [];
         var self = this;
         prelude.split(/\s+/).map(function(x) {
@@ -148,7 +148,7 @@ Amplitude.Sound = (function() {
      * 現在設定されている振幅を取得する。
      * @returns {null|*}
      */
-    Sound.prototype.getAmplitude = function() {
+    Amplitude.Sound.prototype.getAmplitude = function() {
         return this.amplitude;
     };
 
@@ -156,7 +156,7 @@ Amplitude.Sound = (function() {
      * 振幅を設定する。
      * @param amplitude
      */
-    Sound.prototype.setAmplitude = function(amplitude) {
+    Amplitude.Sound.prototype.setAmplitude = function(amplitude) {
         if (_.isNumber(amplitude)) this.amplitude = amplitude;
     };
 
@@ -164,7 +164,7 @@ Amplitude.Sound = (function() {
      * 周波数の取得
      * @returns {number}
      */
-    Sound.prototype.getRate = function() {
+    Amplitude.Sound.prototype.getRate = function() {
         return this.rate;
     };
 
@@ -172,7 +172,7 @@ Amplitude.Sound = (function() {
      * 周波数のセット
      * @param hertz
      */
-    Sound.prototype.setRate = function(rate) {
+    Amplitude.Sound.prototype.setRate = function(rate) {
         if (_.isNumber(rate)) this.rate = rate;
     };
 
@@ -180,7 +180,7 @@ Amplitude.Sound = (function() {
      * 開始時間の設定
      * @param sec
      */
-    Sound.prototype.setStartSecond = function (sec) {
+    Amplitude.Sound.prototype.setStartSecond = function (sec) {
         this._setSecond('startSecond', sec);
     };
 
@@ -188,7 +188,7 @@ Amplitude.Sound = (function() {
      * 終了時間の設定
      * @param sec
      */
-    Sound.prototype.setEndSecond = function(sec) {
+    Amplitude.Sound.prototype.setEndSecond = function(sec) {
         this._setSecond('endSecond', sec);
     };
 
@@ -199,10 +199,6 @@ Amplitude.Sound = (function() {
      * @returns {*}
      * @private
      */
-    Sound.prototype._setSecond = function (paramName, sec) {
+    Amplitude.Sound.prototype._setSecond = function (paramName, sec) {
         return _.isNumber(sec) ? this[paramName] = sec : null;
     };
-
-    return new Sound();
-
-})();

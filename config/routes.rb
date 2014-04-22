@@ -5,9 +5,11 @@ LunarPulse::Application.routes.draw do
   get "moonquake/test"
   get "top/index"
   get "hue/index"
-  root 'test_page#index'    #トップページ
-  get 'main/' => 'main_page#index' # メインページ
-  get 'map/' => 'moon_map#index' # 月面マップ画面
+  # root 'test_page#index'    #トップページ
+  get 'test/' => 'test_page#index' #テストページ
+  # get 'main/' => 'main_page#index' # メインページ
+  root 'main_page#index' #トップページ
+  # get 'map/' => 'moon_map#index' # 月面マップ画面
   post 'map/' => 'moon_map#index' # 月面マップ画面
   get 'stereo/' => 'moon_stereo#index' #月面ステレオ画面
   get 'hue/' => 'hue#index'
@@ -18,8 +20,8 @@ LunarPulse::Application.routes.draw do
   get "moon_quake_api/duration/:start/:end/site/:site" => "moon_quake_api#getSiteDuration"
   get "moon_quake_api/start_date" => "moon_quake_api#getStartDate"
   get "moon_quake_api/end_date" => "moon_quake_api#getEndDate"
-  get "moon_quake_api/all_seismometer" => "moon_quake_api#getAllSeismometer"
-  get "moon_quake_api/all_quake_category" => "moon_quake_api#getAllQuakeCategory"
+  get "moon_quake_aip/all_seismometer" => "moon_quake_api#getAllSeismometer"
+  get "moon_quake_aip/all_quake_category" => "moon_quake_api#getAllQuakeCategory"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
