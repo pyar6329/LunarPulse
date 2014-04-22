@@ -9,7 +9,7 @@ html , body  {
 }
 
 #box {
-    background: url(https://dl.dropboxusercontent.com/u/16268979/rails/moon.png) center no-repeat;
+    background: url(/assets/moon.jpg) center no-repeat;
     color: #fff;
     background-size:contain;
     position: absolute;
@@ -24,44 +24,54 @@ html , body  {
 }
 
 #box .boxInner {
-    padding: 0px 12px;
+    padding: 0 12px;
 }
 
 #box a.apollo14,
 #box a.apollo15,
 #box a.apollo16 {
     background: #FFF;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     border-radius: 30px;
     text-indent: -9999pt;
     text-decoration: none;
     z-index: 100;
     text-align: center;
     position: relative;
-    display: block;
+    display: inline-block;
+    text-align: center;
 }
 
 #box #apollo14 {
     width: 80px;
     height: 80px;
-    top: 270px;
-    left: 300px;
+    top: 330px;
+    left: 355px;
     position:relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 #box #apollo15 {
     width: 80px;
     height: 80px;
-    top: 70px;
-    left: 480px;
+    top: 140px;
+    left: 330px;
     position:relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 #box #apollo16 {
     width: 80px;
     height: 80px;
-    top: 240px;
-    left: 600px;
+    top: 290px;
+    left: 370px;
     position:relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }

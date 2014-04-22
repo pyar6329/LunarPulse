@@ -23,20 +23,24 @@ callbacks.hoge = function(amp, next_amp) {
     var categories = ['.apollo14', '.apollo15', '.apollo16'];
     var colors = ['#003', '#030', '#300'];
     var size = parseAmplitude(amp.amplitude);
-    $(categories[amp.seismometer_id-1]).animate(
+    var site = $(categories[amp.seismometer_id-1]);
+    site.css('background', colors[amp.quake_category_id-1]);
+    site.animate(
         {
             'width': size + 'px',
             'height': size + 'px',
-            'border-radius': size + 'px',
-            'background': colors[amp.quake_category_id-1]
+            'border-radius': size + 'px'
         },
         {
-            queue: false,
+            duration: 100,
+            queue: true,
             always: function(animation, jumpedToEnd){
+                site.css('width', 10);
+                site.css('height', 10);
+                site.css('background', 'white');
             }
         }
     );
-    $(categories[amp.seismometer_id-1]).background = colors[amp.quake_category_id-1];
 };
 
 function parseAmplitude(amplitude) {
